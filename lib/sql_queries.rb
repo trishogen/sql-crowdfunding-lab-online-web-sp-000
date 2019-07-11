@@ -25,11 +25,11 @@ order by u.name;"
 end
 
 def selects_the_titles_and_amount_over_goal_of_all_projects_that_have_met_their_funding_goal
-"select pr.title, (funding_goal - sum(pl.amount)) amount_over_goal
+"select pr.title, (sum(pl.amount)-funding_goal) amount_over_goal
 from projects pr
 join pledges pl
 group by pr.title
-having amount_over_goal > 0"
+having amount_over_goal >= 0"
 end
 
 def selects_user_names_and_amounts_of_all_pledges_grouped_by_name_then_orders_them_by_the_amount_and_users_name
