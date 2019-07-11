@@ -16,7 +16,12 @@ order by pr.title;"
 end
 
 def selects_the_user_name_age_and_pledge_amount_for_all_pledges_alphabetized_by_name
-"Write your SQL query Here"
+"select u.name, u.age, sum(pl.amount)
+from users u
+join pledges pl
+on u.id = pl.user_id
+group by u.name
+order by u.name;"
 end
 
 def selects_the_titles_and_amount_over_goal_of_all_projects_that_have_met_their_funding_goal
