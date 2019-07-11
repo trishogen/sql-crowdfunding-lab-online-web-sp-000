@@ -30,7 +30,7 @@ from projects pr
 join pledges pl
 on pr.id = pl.project_id
 group by pr.title
-having amount_over_goal >= 0"
+having amount_over_goal >= 0;"
 end
 
 def selects_user_names_and_amounts_of_all_pledges_grouped_by_name_then_orders_them_by_the_amount_and_users_name
@@ -39,13 +39,16 @@ from users u
 join pledges pl
 on u.id = pl.user_id
 group by u.id
-order by total_pledged, u.name"
+order by total_pledged, u.name;"
 end
 
 def selects_the_category_names_and_pledge_amounts_of_all_pledges_in_the_music_category
-"Write your SQL query Here"
+"select pl.category, pl.amount
+from pledges pl
+where pl.category = 'music'
+;"
 end
 
 def selects_the_category_name_and_the_sum_total_of_the_all_its_pledges_for_the_books_category
-"Write your SQL query Here"
+";"
 end
