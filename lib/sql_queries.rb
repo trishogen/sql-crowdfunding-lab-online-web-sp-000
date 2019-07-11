@@ -28,6 +28,7 @@ def selects_the_titles_and_amount_over_goal_of_all_projects_that_have_met_their_
 "select pr.title, (sum(pl.amount)-funding_goal) amount_over_goal
 from projects pr
 join pledges pl
+on pr.id = pl.project_id
 group by pr.title
 having amount_over_goal >= 0"
 end
