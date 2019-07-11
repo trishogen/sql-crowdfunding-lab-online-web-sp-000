@@ -34,7 +34,12 @@ having amount_over_goal >= 0"
 end
 
 def selects_user_names_and_amounts_of_all_pledges_grouped_by_name_then_orders_them_by_the_amount_and_users_name
-"Write your SQL query Here"
+"select u.name, sum(pl.amount) total_pledged
+from users u
+join pledges pl
+on u.id = pl.user_id
+group by u.id
+order by total_pledged, u.name"
 end
 
 def selects_the_category_names_and_pledge_amounts_of_all_pledges_in_the_music_category
