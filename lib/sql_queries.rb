@@ -51,5 +51,10 @@ where pr.category = 'music';"
 end
 
 def selects_the_category_name_and_the_sum_total_of_the_all_its_pledges_for_the_books_category
-";"
+"select pr.category, sum(pl.amount)
+from projects pr
+join pledges pl
+on pr.id = pl.project_id
+where pr.category = 'books';
+group by pr.category"
 end
